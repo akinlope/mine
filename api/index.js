@@ -282,7 +282,7 @@ app.get("/search", async (req, res) => {
         // console.log("in try");
         if (!email) {
             console.log("Email is missing");
-            return res.status(400).json({ error: "Email parameter is missing" });
+            return res.status(400).json({ error: "Please Login" });
         };
 
         const users = await User.find({ profession: { $regex: new RegExp(profession, 'i') } });
@@ -329,6 +329,18 @@ app.get("/search", async (req, res) => {
         return res.status(500).json({ error: "Internal Server Error" });
     }
 });
+// getMyProfile
+app.get("/profile", async (req, res) => {
+    const { email } = req.query;
+
+    try {
+        const foundUser = await User.findOne({ email });
+        res.status(200).json(foundUser)
+    } catch (err) {
+        console.log(err.message);
+        return res.status(500).json({ error: "Internal Server Error" });
+    }
+})
 
 
 
