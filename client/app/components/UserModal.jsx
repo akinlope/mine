@@ -7,7 +7,7 @@ export default function UserModal() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
+    setIsModalOpen((prevState)=> !prevState);
   };
 
   return (
@@ -26,13 +26,15 @@ export default function UserModal() {
           {/* Adjusted container width (w-60) */}
           <div className="p-2">
             <div className="flex flex-col">
-              <div className="text-txt hover:text-purple-900 font-bold cursor-pointer w-full p-2">
+              <div onClick={()=> {router.push("/profile")}} className="text-txt hover:text-purple-900 font-bold cursor-pointer w-full p-2">
                 View Profile
               </div>
               <div className="text-txt hover:text-purple-900 font-bold cursor-pointer w-full p-2" onClick={()=>{router.push("/updatebio")}}>
                 Update Profile
               </div>
-              <div className="text-txt hover:text-red-500 font-bold cursor-pointer w-full p-2">
+              <div onClick={()=> {
+                localStorage.clear(); window.location.reload()
+              }} className="text-txt hover:text-red-500 font-bold cursor-pointer w-full p-2">
                 SignOut
               </div>
             </div>

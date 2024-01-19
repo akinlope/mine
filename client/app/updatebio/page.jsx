@@ -4,6 +4,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Loading from "../components/Loading";
 import { useRouter } from "next/navigation";
+import Navbar from "../components/Navbar";
 
 export default function page() {
 const router = useRouter()
@@ -99,6 +100,9 @@ const router = useRouter()
 
   return (
     <main>
+      <div className=" my-2">
+        <Navbar />
+      </div>
       <form
         onSubmit={updateBio}
         className="max-w-xl mx-auto mt-8 p-6 bg-gray-100 rounded-lg shadow-md"

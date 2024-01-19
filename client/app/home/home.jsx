@@ -134,13 +134,13 @@ export default function home() {
           )}
 
           {loader && (
-            <div className="flex justify-center items-center h-full bg-red-500">
+            <div className="flex justify-center items-center h-full">
               <span className=" loader"></span>
             </div>
           )}
           
-          {/* {!loader && (
-            <div className="flex justify-center items-center h-full bg-yellow-500">
+          {!loader && data.length <= 0 && (
+            <div className="flex justify-center items-center h-full">
               {
                 <span className=" font-bold text-2xl text-slate-300 flex">
                   <span className=" flex items-center pr-2">
@@ -150,7 +150,7 @@ export default function home() {
                 </span>
               }
             </div>
-          )} */}
+          )}
         </div>
 
         {/* User full information */}

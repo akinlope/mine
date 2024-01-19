@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoMdMail } from "react-icons/io";
+import Navbar from "../components/Navbar";
 
 export default function Page() {
   const [email, setEmail] = useState("");
@@ -35,7 +36,10 @@ export default function Page() {
     }
   };
 
-  return (
+  return (<>
+      <div className=" my-2">
+        <Navbar />
+      </div>
     <div className="flex flex-1">
       <div className="w-2/5">
         {/* Image */}
@@ -75,6 +79,7 @@ export default function Page() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 
